@@ -10,12 +10,12 @@ public class Exercise1 {
 		
 		
 		char charValue = 'A';
-		short shortValue = charValue;
+//		short shortValue = charValue;
 		
 		int intValue = 10;
 		double var = (double) intValue;
 		String strValue = "A";
-		char var = (char) strValue;
+//		char var = (char) strValue;
 		
 		
 		char var3 = ' ';
