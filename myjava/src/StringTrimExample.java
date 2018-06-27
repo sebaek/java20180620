@@ -6,6 +6,7 @@ public class StringTrimExample {
         String tel3 = "   1234   ";
         
         String tel = tel1.trim() + tel2.trim() + tel3.trim();
+        System.out.println(tel1 + tel2 + tel3);
         System.out.println(tel);
     }
 }
