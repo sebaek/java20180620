@@ -1,5 +1,7 @@
 import java.util.Arrays;
 
+import com.google.myapi.BallPicker;
+
 public class LottoExample {
     public static void main(String[] args) {
         BallPicker ballPicker = new BallPicker(6, 45);
@@ -17,5 +19,12 @@ public class LottoExample {
         ballPicker.pickable = 7;
         balls = ballPicker.pickBalls();
         System.out.println(Arrays.toString(balls));
+        
+        
     }
 }
+
+
+
+
+

@@ -1,15 +1,16 @@
+package com.google.myapi;
 
 public class BallPicker {
 
-    int pickable;
-    int baseNumber;
+    public int pickable;
+    public int baseNumber;
     
-    BallPicker(int pickable, int baseNumber) {
+    public BallPicker(int pickable, int baseNumber) {
         this.pickable = pickable;
         this.baseNumber = baseNumber;
     }
 
-    int[] pickBalls() {
+    public int[] pickBalls() {
         int[] balls = new int [pickable];
         int picked = 0;
         
@@ -24,7 +25,7 @@ public class BallPicker {
         return balls;
     }
     
-    boolean isNew(int ball, int[] balls) {
+    private boolean isNew(int ball, int[] balls) {
         for (int i = 0; i < pickable; i++) {
             if (balls[i] == ball) {
                 return false;
@@ -33,7 +34,7 @@ public class BallPicker {
         return true;
     }
     
-    int getRandomNumber() {
+    private int getRandomNumber() {
         return (int) (Math.random() * this.baseNumber) + 1;
     }
     
