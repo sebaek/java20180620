@@ -6,4 +6,8 @@ public class Parent {
     public Parent(String name) {
         this.name = name;
     }
+    
+    public Parent() {
+        
+    }
 }

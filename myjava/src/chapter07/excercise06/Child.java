@@ -9,6 +9,7 @@ public class Child extends Parent {
     }
 
     public Child(String name) {
+        super();
         this.name = name;
         System.out.println("Child(String name) call");
     }
