@@ -1,4 +1,4 @@
-package chapter11.exercise07;
+package chapter13;
 
 public class User {
     private String name;
