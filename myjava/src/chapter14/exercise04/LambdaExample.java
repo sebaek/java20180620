@@ -5,8 +5,8 @@ import java.util.function.IntSupplier;
 public class LambdaExample {
     public static int method(int x, int y) {
         IntSupplier supplier = () -> {
-//            x *= 10;
-            int result = x + y;
+            int z = x * 10;
+            int result = z + y;
             return result;
         };
         int result = supplier.getAsInt();
