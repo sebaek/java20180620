@@ -14,6 +14,9 @@ public class LambdaExample {
     }
     
     public static void main(String[] args) {
+        Object a = args;
+        Integer b = (Integer) a;
+        
         System.out.println(method(3, 5));
     }
 }
