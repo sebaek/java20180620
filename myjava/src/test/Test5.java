@@ -3,6 +3,8 @@ package test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Test5 {
     public static void main(String[] args) {
@@ -40,5 +42,16 @@ public class Test5 {
         }
         System.out.println(list.size());
         System.out.println(s);
+        
+        System.out.println("==================================");
+        
+        Set<Integer> set = new TreeSet<>();
+        for (int i = 0; i < 10; i++) {
+            set.add(random.nextInt(100));
+        }
+        
+        for (int n : set) {
+            System.out.println(n);
+        }
     }
 }
