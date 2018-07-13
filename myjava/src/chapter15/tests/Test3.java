@@ -1,7 +1,9 @@
 package chapter15.tests;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Test3 {
     public static void main(String[] args) {
@@ -24,6 +26,79 @@ public class Test3 {
         // 3. 품종(String breed)을 키로 하고 List<Dog>를 값으로 갖는
         //    Map 만들기 (이름 순 정렬)
         //    - 즉, 품종별로 리스트 나누어 Map에 저장하기 (이름순 정렬)
+        Map<String, Computation> map = new HashMap<>();
+        for (Dog dog : dogs) {
+            if (map.containsKey(dog.getBreed())) {
+                Computation com = map.get(dog.getBreed());
+                com.put(dog);
+            } else {
+                Computation com = new Computation();
+                com.put(dog);
+                map.put(dog.getBreed(), com);
+            }
+        }
+        
+        
+        for (String breed : map.keySet()) {
+            System.out.println("=== 품종 : " + breed + " ===");
+            System.out.println("sum : " + map.get(breed).getSum());
+            System.out.println("avg : " + map.get(breed).getAvg());
+            System.out.println("min : " + map.get(breed).getMin());
+            System.out.println("max : " + map.get(breed).getMax());
+        }
+        
+        Map<String, List<Dog>> result = new HashMap<>();
+        for (String breed : map.keySet()) {
+            result.put(breed, map.get(breed).getDogs());
+        }
+        
+        for (String breed : result.keySet()) {
+            List<Dog> list = result.get(breed);
+            for (Dog dog : list) {
+                System.out.println(dog);
+            }
+        }
+    }
+}
+
+class Computation {
+    private double sum;
+    private double max;
+    private double min;
+    private List<Dog> dogs;
+    
+    public Computation() {
+        max = 0.0;
+        min = Double.MAX_VALUE;
+        dogs = new ArrayList<>(); 
+    }
+    
+    public void put(Dog dog) {
+        sum = (sum * 10 + dog.getWeight() * 10) / 10;
+        max = Math.max(max, dog.getWeight());
+        min = Math.min(min, dog.getWeight());
+        dogs.add(dog);
+    }
+
+    public double getSum() {
+        return sum;
+    }
+
+    public double getAvg() {
+        return sum / dogs.size();
+    }
+
+    public double getMax() {
+        return max;
+    }
+
+    public double getMin() {
+        return min;
+    }
+
+    public List<Dog> getDogs() {
+        dogs.sort((d1, d2) -> d1.getName().compareTo(d2.getName()));
+        return dogs;
     }
 }
 

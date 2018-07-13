@@ -12,9 +12,17 @@ public class Test10 {
         
         Scanner scanner = new Scanner(file);
         
+        long maxEndingHere = 0;
+        long maxSoFar = 0;
+        maxEndingHere = maxSoFar = scanner.nextInt();
+        
         while (scanner.hasNextInt()) {
-            System.out.println(scanner.nextInt());
+            int next = scanner.nextInt();
+            maxEndingHere = Math.max(next, maxEndingHere + next);
+            maxSoFar = Math.max(maxSoFar, maxEndingHere);
         }
+        
+        System.out.println(maxSoFar);
         
         scanner.close();
     }
